@@ -1,0 +1,980 @@
+/* ======================
+   RESET GLOBAL
+   ====================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter', sans-serif;
+    background:#ffffff;
+    color:#3b2f26;
+    overflow-y:auto;
+}
+
+/* ======================
+   BLOQUEIO POR SENHA
+   ====================== */
+.erro {
+color: red;
+}
+
+.lock-screen{
+    position:fixed;
+    inset:0;
+    background:#f6dcc1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.lock-box{
+    background:#fff;
+    padding:40px 25px;
+    border-radius:24px;
+    text-align:center;
+    box-shadow:0 30px 80px rgba(0,0,0,.15);
+    width:100%;
+    max-width:420px;
+}
+
+.logo-lock{
+    width:380px;
+}
+
+.lock-box h2{
+    font-family:'Playfair Display', serif;
+    font-size:26px;
+}
+
+.lock-box p{
+    margin-top:10px;
+    opacity:.7;
+}
+
+.lock-box input{
+    margin-top:24px;
+    padding:14px;
+    width:100%;
+    border-radius:30px;
+    border:1px solid #ccc;
+    text-align:center;
+    font-size:15px;
+}
+
+.lock-box button{
+    margin-top:22px;
+    padding:14px 40px;
+    border:none;
+    border-radius:30px;
+    background:#cfa66a;
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.lock-box button:hover{
+    transform:translateY(-2px);
+}
+
+@media (max-width: 768px){
+    .logo-lock{
+        width:180px;
+    }
+}
+
+/* ======================
+   SITE (DESBLOQUEADO)
+   ====================== */
+.site{
+    display:none;
+}
+
+/* =========================================================
+   CAPA DO ÁLBUM — MODO LIVRO
+   ========================================================= */
+
+.livro-capa{
+    position: relative;
+    z-index: 50;
+
+    height: 100svh;
+    padding:40px 10px;
+    gap:32px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 65%),
+        linear-gradient(180deg,#fffdf9,#f6ecdf);
+
+    overflow: visible; /* 🔥 ESSENCIAL */
+}
+
+
+
+/* ======================
+   FOTO DE CAPA DO BEBÊ
+   ====================== */
+.capa-bebe{
+    flex:0 0 330px;
+    height:520px;
+
+    border-radius:22px;
+    overflow:hidden;
+
+    transform:rotate(-4deg);
+    box-shadow:
+        0 40px 90px rgba(0,0,0,.25),
+        inset 0 0 0 1px rgba(255,255,255,.6);
+
+    position:relative;
+}
+
+/* brilho sutil */
+.capa-bebe::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,0) 42%,
+            rgba(255,255,255,.35) 50%,
+            rgba(255,255,255,0) 58%
+        );
+    transform:translateX(-130%);
+    transition:transform 3.2s cubic-bezier(.19,1,.22,1);
+}
+
+.livro-capa.ativo .capa-bebe::after{
+    transform:translateX(130%);
+}
+
+.capa-bebe img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position: center center;
+    transform: scale(0.88);
+    border-radius:14px;
+}
+
+/* ======================
+   TEXTO DA CAPA
+   ====================== */
+.album-intro-conteudo{
+    max-width:500px;
+    text-align:center;
+}
+
+.logo-master{
+    width:360px;
+    max-width:90%;
+}
+
+.album-eyebrow{
+    display:block;
+    margin-bottom:26px;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.6;
+}
+
+.album-intro h1{
+    font-family:'Playfair Display', serif;
+    font-size:52px;
+    line-height:1.2;
+}
+
+.album-texto{
+    margin-top:22px;
+    font-size:18px;
+    line-height:1.9;
+    opacity:.85;
+}
+
+.album-orientacao{
+    display:block;
+    margin-top:60px;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.45;
+}
+
+@media (max-width: 768px){
+body{
+    overflow-y: auto;
+}
+
+   .livro-capa{
+        height: 100svh;
+        width: 100vw;
+
+        padding: 5px 6px; /* 🔥 menos respiro */
+        gap: 4px;           /* 🔥 aproxima blocos */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    .capa-bebe{
+        width:150px;
+        height:150px;
+        flex: none;              /* 🔥 REMOVE flex-basis do desktop */
+        aspect-ratio: 1 / 1;     /* 🔥 GARANTE QUADRADO */
+        transform: rotate(-2deg);
+    }
+
+     .logo-master{
+        width:220px;
+        margin:0px;
+    }
+
+    .album-eyebrow{
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .album-intro h1{
+        font-size: 14px;
+        line-height: 1;
+        margin: 0;
+    }
+
+    .album-texto{
+        font-size: 10px;
+        line-height: 1.15;
+        margin-top: 0px;
+    }
+
+    .album-orientacao{
+        margin-top: 10px;
+        font-size: 7px;
+        letter-spacing: 1.2px;
+        opacity: .6;
+    }
+}
+
+@media (max-height: 680px){
+    .capa-bebe{
+        width: 130px;
+        height: 130px;
+    }
+
+    .album-intro h1{
+        font-size: 20px;
+    }
+}
+
+
+/* ======================
+   TOPO DO ÁLBUM
+   ====================== */
+.album-topo{
+    padding:120px 20px 90px;
+    text-align:center;
+}
+
+.logo-master{
+    width:420px;
+    max-width:90%;
+}
+
+.album-topo h1{
+    font-family:'Playfair Display', serif;
+    font-size:48px;
+    margin-top:40px;
+}
+
+.album-topo p{
+    margin-top:12px;
+    opacity:.7;
+}
+
+/* ======================
+   PLAYER MUSICAL — ÁLBUM
+   ====================== */
+
+.player-album{
+    position: fixed;
+
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    right:  calc(20px + env(safe-area-inset-right));
+
+    z-index: 200;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 14px 22px;
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0,0,0,.15);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: .6s cubic-bezier(.19,1,.22,1);
+}
+
+
+/* aparece quando álbum começa */
+.player-album.visivel{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.player-album button{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+
+    background: #cfa66a;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    transition: transform .3s ease, background .3s ease;
+}
+
+.player-album button:hover{
+    transform: scale(1.08);
+    background: #b8925a;
+}
+
+.player-label{
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: .65;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .player-album{
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .player-album button{
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+/* ======================
+   INTRO VIDEO
+====================== */
+
+.video{
+    width:100%;
+    padding:140px 20px 100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:60px;
+}
+
+.video-principal{
+    width:100%;
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.video-container{
+    width:100%;
+    max-width:1100px;
+    aspect-ratio:16 / 9;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 40px 100px rgba(0,0,0,.2);
+}
+
+.video-container video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.video-intro{
+    max-width:700px;
+    text-align:center;
+}
+
+.video-eyebrow{
+    display:block;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.6;
+    margin-bottom:20px;
+}
+
+.video-intro h2{
+    font-family:'Playfair Display', serif;
+    font-size:46px;
+    margin-bottom:20px;
+}
+
+.video-intro p{
+    font-size:18px;
+    line-height:1.8;
+    opacity:.85;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .video-principal{
+        padding:100px 20px 80px;
+        gap:40px;
+    }
+
+    .video-intro h2{
+        font-size:30px;
+    }
+
+    .video-intro p{
+        font-size:15px;
+    }
+}
+
+/* ======================
+   INTRO EMOCIONAL DO ÁLBUM
+   ====================== */
+
+.album-intro-conteudo{
+    max-width:780px;
+    padding: 0;
+}
+
+.album-eyebrow{
+    display:block;
+    margin-bottom:28px;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.6;
+}
+
+.album-intro h1{
+    font-family:'Playfair Display', serif;
+    font-size:52px;
+    line-height:1.2;
+}
+
+.album-intro h1 strong{
+    font-weight:600;
+}
+
+.album-texto{
+    margin-top:22px;
+    font-size:18px;
+    line-height:1.9;
+    opacity:.85;
+}
+
+.album-orientacao{
+    display:block;
+    margin-top:60px;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.45;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .album-intro{
+        padding:120px 20px 100px;
+    }
+
+    .album-intro h1{
+        font-size:34px;
+    }
+
+    .album-texto{
+        font-size:16px;
+    }
+}
+
+
+
+/* ======================
+   GRID EDITORIAL — ÁLBUM
+   ====================== */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 9vw; /* controla proporção geral */
+    gap: 1.2vw;
+    width: 100%;
+    padding: 0 1.2vw;
+    box-sizing: border-box;
+}
+
+/* BASE */
+.foto {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 🔥 HERO – DUPLA DE PÁGINA */
+.f1 {
+    grid-column: 1 / 13;
+    grid-row: span 8;
+}
+
+/* VERTICAIS ALTAS */
+.f2 {
+    grid-column: 1 / 4;
+    grid-row: span 3;
+}
+
+.f3 {
+    grid-column: 4 / 7;
+    grid-row: span 3;
+}
+
+/* HORIZONTAL GRANDE */
+.f4 {
+    grid-column: 7 / 13;
+    grid-row: span 3;
+}
+
+.f4a {
+    grid-column: 1 / 13;
+    grid-row: span 4;
+}
+
+/* QUADRADAS */
+.f5 {
+    grid-column: 1 / 4;
+    grid-row: span 2;
+}
+
+.f6 {
+    grid-column: 4 / 7;
+    grid-row: span 2;
+}
+
+.f7 {
+    grid-column: 7 / 10;
+    grid-row: span 2;
+}
+
+/* HORIZONTAL MÉDIA */
+.f8 {
+    grid-column: 10 / 13;
+    grid-row: span 4;
+}
+
+/* MINI EDITORIAIS */
+.f9 {
+    grid-column: 1 / 4;
+    grid-row: span 4;
+}
+
+.f10 {
+    grid-column: 4 / 7;
+    grid-row: span 4;
+}
+
+.f11 {
+    grid-column: 7 / 10;
+    grid-row: span 4;
+}
+
+.f12 {
+    grid-column: 10 / 13;
+    grid-row: span 2;
+}
+
+/* FECHAMENTO */
+.f13 {
+    grid-column: 1 / 13;
+    grid-row: span 5;
+}
+
+/* ======================
+   Album-grid-20
+   ====================== */
+
+.album-grid-20 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 8vw); /* altura total fechada */
+    gap: 1vw;
+    width: 100%;
+    padding: 1.2vw;
+    box-sizing: border-box;
+}
+
+.album-grid-20 .foto {
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.album-grid-20 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* FOTO GIGANTE */
+.g1 {
+    grid-column: 1 / 7;
+    grid-row: 1 / 11; /* 10 linhas */
+}
+
+/* MINI FOTOS – 1 COLUNA */
+.g2 { grid-column: 7 / 10 ; grid-row: 1; }
+.g3 { grid-column: 7 / 10; grid-row: 2; }
+.g4 { grid-column: 7; grid-row: 3; }
+.g5 { grid-column: 7; grid-row: 4; }
+.g6 { grid-column: 7; grid-row: 5; }
+.g7 { grid-column: 7; grid-row: 6; }
+
+/* QUADRADAS (2x2) */
+/* .g8  { grid-column: 10 / 13; grid-row: 1 / 3; } */
+.g9  { grid-column: 10 / 13; grid-row: 1 / 3; }
+.g10 { grid-column: 8 / 10; grid-row: 3 / 5; }
+.g11 { grid-column: 10 / 13; grid-row: 3 / 5; }
+
+/* RETANGULARES HORIZONTAIS */
+.g12 { grid-column: 7 / 10; grid-row: 7 / 9; }
+.g13 { grid-column: 10 / 13; grid-row: 7 / 9; }
+
+/* RETANGULARES VERTICAIS */
+.g14 { grid-column: 8 / 12; grid-row: 5 / 7; }
+.g15 { grid-column: 12 / 13; grid-row: 5 / 7; }
+
+/* NORMAIS */
+.g16 { grid-column: 7 / 9; grid-row: 9 / 11; }
+.g17 { grid-column: 9 / 11; grid-row: 9 / 11; }
+.g18 { grid-column: 11 / 13; grid-row: 9 / 11; }
+
+/* SOBRA FECHADA (RESPIRO) */
+.g19 { grid-column: 8 / 10; grid-row: 11 / 13; }
+.g20 { grid-column: 10 / 12; grid-row: 11 / 13; }
+
+@media (max-width: 900px){
+
+    .album-grid{
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 60vw;
+        padding: 0 12px;
+        gap: 12px;
+    }
+
+    /* resetar posições */
+    .album-grid .foto{
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+
+    .album-grid img{
+        object-position: center; /* 🔥 evita corte lateral */
+    }
+}
+
+
+/* ======================
+   EFEITO TETRIS — GRID
+   ====================== */
+
+.foto {
+    opacity: 0;
+    transform: translateY(-100vh) scale(0.96);
+    transition:
+        transform 3s cubic-bezier(.19,1,.22,1),
+        opacity 2s ease;
+}
+
+.foto.aparecer {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ======================
+   DOWNLOAD FOTO
+====================== */
+
+.foto-wrapper{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.btn-download{
+    position:absolute;
+    bottom:12px;
+    right:12px;
+
+    width:36px;
+    height:36px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(6px);
+
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+
+    opacity:0;
+    transition:.4s ease;
+}
+
+.foto:hover .btn-download{
+    opacity:1;
+}
+
+.btn-download:hover{
+    transform:scale(1.1);
+    background:#cfa66a;
+}
+
+
+
+/* ======================
+   SEÇÃO AUTORA
+   ====================== */
+.autora-premium{
+    margin:160px 0 100px;
+}
+
+.autora-conteudo{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:120px;
+    justify-content:center;
+}
+
+.autora-foto img{
+    width:360px;
+    height:460px;
+    object-fit:cover;
+    border-radius:28px;
+    box-shadow:0 30px 70px rgba(0,0,0,.18);
+    filter:grayscale(20%) contrast(1.05);
+}
+
+.autora-texto{
+    max-width:520px;
+    text-align:center;
+}
+
+.autora-texto h2{
+    font-family:'Playfair Display', serif;
+    font-size:48px;
+}
+
+.autora-texto p{
+    margin-top:20px;
+    font-size:17px;
+    line-height:1.9;
+}
+
+.botoes-autora{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+}
+
+.botoes-autora a{
+    margin:0 15px;
+    padding:14px 34px;
+    border:1px solid #cfa66a;
+    color:#cfa66a;
+    text-decoration:none;
+    border-radius:40px;
+    transition:.35s;
+}
+
+.botoes-autora a:hover{
+    background:#cfa66a;
+    color:#fff;
+}
+
+/* =========================================================
+   AUTORA — MODO LIVRO (ÚLTIMA PÁGINA)
+   ========================================================= */
+
+.autora-premium{
+    position: relative;
+    background:#fff;
+}
+
+/* estado livro */
+.autora-premium.livro-autora{
+    position:fixed;
+    inset:0;
+    z-index:40;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 65%),
+        linear-gradient(180deg,#fffdf9,#f6ecdf);
+
+    will-change: transform, opacity;
+    perspective:1200px;
+}
+
+/* FECHAR (entrar na autora) */
+.autora-premium.fechar-autora{
+    animation:fecharAutora 1.6s cubic-bezier(.19,1,.22,1) forwards;
+    transform-origin:right center;
+}
+
+/* ABRIR (voltar para o álbum) */
+.autora-premium.abrir-autora{
+    animation:abrirAutora 1.6s cubic-bezier(.19,1,.22,1) forwards;
+    transform-origin:right center;
+}
+
+@keyframes fecharAutora{
+    0%{
+        transform:translateX(120%) rotateY(35deg);
+        opacity:0;
+    }
+    100%{
+        transform:translateX(0) rotateY(0deg);
+        opacity:1;
+    }
+}
+
+@keyframes abrirAutora{
+    0%{
+        transform:translateX(0) rotateY(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateX(120%) rotateY(35deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   AUTORA — OVERLAY / PÁGINA
+========================= */
+
+.autora-overlay {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  background: #fff; /* ajuste para a cor do site */
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 1.2s ease;
+}
+
+/* estado ativo */
+.autora-overlay.ativa {
+  transform: translateY(0);
+}
+
+
+/* ======================
+   FOOTER
+   ====================== */
+footer{
+    padding:60px;
+    text-align:center;
+    opacity:.6;
+    background:#ffffff;
+}
+
+/* ======================
+   LIGHTBOX
+   ====================== */
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:10000;
+}
+
+.lightbox img{
+    max-width:92%;
+    max-height:92%;
+}
+
+/* ======================
+   MOBILE
+   ====================== */
+@media(max-width:900px){
+
+    .album-grid{
+        grid-template-columns:1fr;
+        grid-auto-rows:auto;
+        padding:0 20px;
+    }
+
+    .hero,
+    .vertical,
+    .horizontal,
+    .quadrada,
+    .pequena{
+        grid-column:auto;
+        grid-row:auto;
+    }
+
+    .autora-conteudo{
+        flex-direction:column;
+        gap:60px;
+    }
+
+    .autora-foto img{
+        width:280px;
+        height:360px;
+    }
+
+    .album-topo h1{
+        font-size:34px;
+    }
+}

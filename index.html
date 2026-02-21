@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Primeiro Álbum | Renata Lemes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BLOQUEIO POR SENHA -->
+<div class="lock-screen" id="lock">
+    <div class="lock-box">
+        <img src="../../imagens/logo.png" class="logo-lock">
+        <h2>Álbum privado</h2>
+        <p>Digite a senha para acessar</p>
+        <input type="password" id="senha" placeholder="Senha">
+        <span class="erro" id="erro"></span>
+        </br>
+        <button onclick="verificarSenha()">Entrar</button>
+    </div>
+</div>
+
+<!-- SITE -->
+<div class="site" id="site">
+
+    <!-- TOPO -->
+  <header class="album-intro livro-capa" id="livroCapa">
+
+    <!-- FOTO DE CAPA -->
+    <figure class="capa-bebe">
+        <img src="imagens/foto_capa.jpg" alt="Capa do álbum do bebê">
+    </figure>
+
+    <!-- CONTEÚDO -->
+    <div class="album-intro-conteudo">
+
+        <img src="../../imagens/logo.png" class="logo-master">
+
+        <span class="album-eyebrow">
+            Um começo que muda tudo
+        </span>
+
+        <h1>
+            <strong>Olívia</strong>,<br>
+            este é o início da sua história.
+        </h1>
+
+        <p class="album-texto">
+            Cada fotografia aqui carrega silêncio, cuidado e amor.<br>
+            Este álbum não mostra apenas um nascimento.<br>
+            Ele guarda o primeiro encontro.
+        </p>
+
+        <span class="album-orientacao">
+            Role para explorar o álbum
+        </span>
+
+    </div>
+
+</header>
+
+<!-- PLAYER MUSICAL -->
+<div class="player-album" id="playerAlbum">
+    <button id="btnMusica" aria-label="Controle de música">
+        ▶
+    </button>
+    <span class="player-label">Trilha do Álbum</span>
+</div>
+
+<audio id="musicaAlbum" loop>
+    <source src="sons/Ed_Mota-Tarzan.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- SEÇÃO VÍDEO PRINCIPAL -->
+<!-- <section class="video">
+
+    <div class="video-intro">
+        <span class="video-eyebrow">
+            O momento que mudou tudo
+        </span>
+
+        <h2>
+            O primeiro encontro.
+        </h2>
+
+        <p>
+            Entre silêncio, força e amor,
+            este foi o instante em que o mundo
+            ganhou um novo nome.
+        </p>
+    </div>
+
+    <div class="video-container">
+        <video id="videoPrincipal" controls preload="metadata">
+            <source src="video/video-album.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</section> -->
+
+
+
+
+    <main class="album-grid-20">
+
+    <!-- FOTO VERTICAL GIGANTE -->
+    <figure class="foto g1">
+        <div class="foto-wrapper">
+            <img src="imagens/foto01.jpg">
+            <a href="imagens/foto01.jpg" class="btn-download">⬇</a>
+        </div>
+    </figure>
+
+    <!-- COLUNA DE MINI FOTOS (6 x 1 COLUNA) -->
+    <figure class="foto g2">
+    <div class="foto-wrapper">
+        <img src="imagens/foto02.jpg">
+        <a href="imagens/foto02.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g3">
+    <div class="foto-wrapper">
+        <img src="imagens/foto03.jpg">
+        <a href="imagens/foto03.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g4">
+    <div class="foto-wrapper">
+        <img src="imagens/foto04.jpg">
+        <a href="imagens/foto04.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g5">
+    <div class="foto-wrapper">
+        <img src="imagens/foto05.jpg">
+        <a href="imagens/foto05.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g6">
+    <div class="foto-wrapper">
+        <img src="imagens/foto06.jpg">
+        <a href="imagens/foto06.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g7">
+    <div class="foto-wrapper">
+        <img src="imagens/foto07.jpg">
+        <a href="imagens/foto07.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+    <!-- QUADRADAS -->
+    <!-- <figure class="foto g8">
+    <div class="foto-wrapper">
+        <img src="imagens/foto08.jpg">
+        <a href="imagens/foto08.jpg" class="btn-download">⬇</a>
+    </div> -->
+</figure>
+
+<figure class="foto g9">
+    <div class="foto-wrapper">
+        <img src="imagens/foto09.jpg">
+        <a href="imagens/foto09.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g10">
+    <div class="foto-wrapper">
+        <img src="imagens/foto10.jpg">
+        <a href="imagens/foto10.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g11">
+    <div class="foto-wrapper">
+        <img src="imagens/foto11.jpg">
+        <a href="imagens/foto11.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+    <!-- RETANGULARES -->
+<figure class="foto g12">
+    <div class="foto-wrapper">
+        <img src="imagens/foto12.jpg">
+        <a href="imagens/foto12.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g13">
+    <div class="foto-wrapper">
+        <img src="imagens/foto13.jpg">
+        <a href="imagens/foto13.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g14">
+    <div class="foto-wrapper">
+        <img src="imagens/foto14.jpg">
+        <a href="imagens/foto14.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g15">
+    <div class="foto-wrapper">
+        <img src="imagens/foto15.jpg">
+        <a href="imagens/foto15.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+    <!-- NORMAIS -->
+    <figure class="foto g16">
+    <div class="foto-wrapper">
+        <img src="imagens/foto16.jpg">
+        <a href="imagens/foto16.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g17">
+    <div class="foto-wrapper">
+        <img src="imagens/foto17.jpg">
+        <a href="imagens/foto17.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto g18">
+    <div class="foto-wrapper">
+        <img src="imagens/foto18.jpg">
+        <a href="imagens/foto18.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+</main>
+
+    <!-- GRID EDITORIAL 13 COLUNAS -->
+<main class="album-grid editorial-13">
+
+<figure class="foto f1">
+    <div class="foto-wrapper">
+        <img src="imagens/foto19.jpg">
+        <a href="imagens/foto19.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f2">
+    <div class="foto-wrapper">
+        <img src="imagens/foto20.jpg">
+        <a href="imagens/foto20.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f3">
+    <div class="foto-wrapper">
+        <img src="imagens/foto21.jpg">
+        <a href="imagens/foto21.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f4">
+    <div class="foto-wrapper">
+        <img src="imagens/foto22.jpg">
+        <a href="imagens/foto22.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f4a">
+    <div class="foto-wrapper">
+        <img src="imagens/foto08.jpg">
+        <a href="imagens/foto08.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f5">
+    <div class="foto-wrapper">
+        <img src="imagens/foto23.jpg">
+        <a href="imagens/foto23.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f6">
+    <div class="foto-wrapper">
+        <img src="imagens/foto24.jpg">
+        <a href="imagens/foto24.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f7">
+    <div class="foto-wrapper">
+        <img src="imagens/foto25.jpg">
+        <a href="imagens/foto25.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f8">
+    <div class="foto-wrapper">
+        <img src="imagens/foto26.jpg">
+        <a href="imagens/foto26.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f9">
+    <div class="foto-wrapper">
+        <img src="imagens/foto27.jpg">
+        <a href="imagens/foto27.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f10">
+    <div class="foto-wrapper">
+        <img src="imagens/foto28.jpg">
+        <a href="imagens/foto28.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f11">
+    <div class="foto-wrapper">
+        <img src="imagens/foto29.jpg">
+        <a href="imagens/foto29.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f12">
+    <div class="foto-wrapper">
+        <img src="imagens/foto30.jpg">
+        <a href="imagens/foto30.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+<figure class="foto f13">
+    <div class="foto-wrapper">
+        <img src="imagens/foto31.jpg">
+        <a href="imagens/foto31.jpg" class="btn-download">⬇</a>
+    </div>
+</figure>
+
+</main>
+
+    <!-- AUTORA -->
+    <section class="autora-premium">
+        <div class="autora-conteudo">
+
+            <figure class="autora-foto">
+                <img src="../../imagens/autora-renata.jpeg">
+            </figure>
+
+            <div class="autora-texto">
+                <h2>Renata Lemes</h2>
+                <p>
+                    Fotógrafa especializada em partos e nascimentos.<br>
+                    Presença silenciosa, olhar sensível e respeito absoluto.
+                </p>
+
+                <div class="botoes-autora">
+                    <a href="https://instagram.com/renatalemesfotografia" target="_blank">Instagram</a>
+                    <a href="mailto:renata@renatalemes.com.br">E-mail</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 · Renata Lemes · Fotografia de Parto · Brasília
+    </footer>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <img src="">
+</div>
+
+<!-- Para conferir a senha hash -->
+<script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/src/sha256.min.js"></script> 
+<script src="script.js"></script>
+
+</body>
+</html>
